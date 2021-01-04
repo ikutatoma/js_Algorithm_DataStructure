@@ -1,6 +1,7 @@
 //年齢当てゲームで，Aさんの年齢が20歳以上36歳未満のそれぞれの場合について，二分探索法によって年齢を当てるまでの流れを求めてください。
-var ageMax = 36;
-var ageMin = 20;
+
+var ageMax = 100;
+var ageMin = 0;
 let age = Math.floor(Math.random() * (ageMax - ageMin)) + ageMin;
 var aa = new Array(ageMax - ageMin).fill(ageMin);
 var t = 0;
@@ -8,6 +9,7 @@ ageArr = aa.map(function (value) {
   return value + t++;
 })
 var devideArr = ageArr;
+var x = 1;
 while(true){
   var devideIndex = Math.ceil(devideArr.length / 2); //devideArr.length / 2 => 配列を切るIndex
   if (devideArr[devideIndex] > age) {
@@ -26,4 +28,6 @@ while(true){
     console.log(`決まりました！年齢は${devideArr[devideIndex]}です！`);
     break;
   }
+  x++;
 }
+console.log((x <= 6) ? "6回以内で当てることができる" : ((x==7) ? "7回で確実に当てることができる"　: "7回でも当てることができない"));
