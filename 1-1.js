@@ -1,6 +1,6 @@
 //年齢当てゲームで，Aさんの年齢が20歳以上36歳未満のそれぞれの場合について，二分探索法によって年齢を当てるまでの流れを求めてください。
-var ageMax = 36;
-var ageMin = 20;
+var ageMax = 100;
+var ageMin = 0;
 let age = Math.floor(Math.random() * (ageMax - ageMin)) + ageMin;
 var aa = new Array(ageMax - ageMin).fill(ageMin);
 var t = 0;
