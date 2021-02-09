@@ -30,26 +30,26 @@ function outPut(a) {
   console.log("  ")
 }
 
-let N = 4;
-let W = Math.floor(Math.random() * (9 + 1 - 6)) + 6; //maxの重さ
-let weight = new Array(N);
-let value = new Array(N);
-for (var i = 0; i < N; i++) {
-  weight[i] = Math.floor(Math.random() * (4 + 1 - 1)) + 1; //重さ
-  value[i] = Math.floor(Math.random() * (3 + 1 - 1)) + 1; //価値
-}
+let N = 6;
+let W = 15; //maxの重さ
+let weight = [2, 1, 3, 2, 1, 5];
+let value = [3, 2, 6, 1, 3, 85];
+
+
 
 let dp = new Array(N + 1);
 for (var i = 0; i < dp.length; i++) {
   dp[i] = new Array(W + 1).fill(0);
 }
 
-for (var i = 0; i < N; ++i) {
+for (var i = 0; i < N; ++i) {1
+  console.log(`i..${i}`);
   for (var w = 0; w <= W; w++) {
     if (w - weight[i] >= 0) {
+      console.log(` w..${w} weight..${weight[i]}  w-weight..${w-weight[i]}   dp[i][w - weight[i]]..${dp[i][w - weight[i]]}  value..${value[i]}`);
       dp[i + 1][w] = chmax(dp[i + 1][w], dp[i][w - weight[i]] + value[i]);
     }
     dp[i + 1][w] = chmax(dp[i + 1][w], dp[i][w]);
   }
-  outPut(w);
+   outPut(w);
 }

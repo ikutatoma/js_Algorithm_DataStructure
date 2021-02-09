@@ -1,3 +1,13 @@
+function outPut() {
+  for (var i = 0; i < dp.length; i++){
+    for (var j = 0; j < dp[i].length; j++){
+      process.stdout.write(`${dp[i][j]}  `);
+    }
+    console.log("");
+  }
+}
+
+
 let N = Math.floor(Math.random() * (6 + 1 - 1)) + 1;//aの配列の個数
 let W = Math.floor(Math.random() * (15 + 1 - 10)) + 10;//重さの総和
 let a = new Array(N);
@@ -23,7 +33,7 @@ for (var i = 0; i < N; ++i) {
   }
 }
 
-
+outPut();
 if (dp[N][W] == true) {
   console.log("Yes");
 }
